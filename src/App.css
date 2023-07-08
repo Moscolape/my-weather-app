@@ -1,38 +1,152 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Montez&family=Poppins:wght@400;600&family=Tilt+Prism&display=swap');
+
+/* background image */
+.body {
+  position: relative;
+  height: 100vh;
+  background-size: 100% 100%;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.85);
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  top: 20%;
+}
+
+.text-center h1 {
+  font-family: Tilt Prism;
+  font-weight: 700;
+}
+
+
+/* Add a click visual effect to check weather button */
+.btn {
+  box-shadow: 0 6px #003300;
+}
+
+.btn:active {
+  box-shadow: 0 3px #008060;
+  transform: translateY(3px);
+}
+
+
+/* Landing page */
+.h1 {
   text-align: center;
+  color: #004d39;
+  margin-top: 6%;
+  font-family: Tilt Prism;
+  font-weight: 700;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-info {
+  color: white;
+  font-size: 0.9rem;
+  width: 35%;
+  padding: 5%;
+  position: absolute;
+  top: 47%;
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  font-family: Poppins;
+  background-color: #004d39;
+  clip-path: polygon(0 10%, 15% 10%, 15% 0%, 85% 0%, 85% 10%, 100% 10%, 100% 90%, 85% 90%, 85% 100%, 15% 100%, 15% 90%, 0 90%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.button {
+  position: absolute;
+  bottom: 13%;
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  border-radius: 4px;
+  background-color: #004d39;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 10px;
+  width: 20%;
+  transition: all 0.5s;
+  cursor: pointer;
+  font-family: "Poppins";
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.button:hover {
+  background-color: #0a5f4a;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* style the Loader */
+#loader {
+  border: 4px solid #ccffeb;
+  border-top: 4px solid green;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  display: none;
+}
+
+/* spin the loader */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* mobile styling */
+@media screen and (max-width: 800px) {
+  .app-info {
+    width: 80%;
+    padding: 10%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .container {
+    width: 100%;
+    left: 0%;
+  }
+
+  #city {
+    width: 100%;
+  }
+
+  .h1 {
+    font-size: 2rem;
+  }
+
+  .app-info {
+    padding-top: 15%;
+  }
+  
+
+  .button {
+    width: 80%;
   }
 }
